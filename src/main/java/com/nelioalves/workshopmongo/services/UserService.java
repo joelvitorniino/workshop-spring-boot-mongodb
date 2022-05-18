@@ -42,10 +42,10 @@ public class UserService {
     }
 
     public User update(User obj) {
-        Optional<User> newObj = repository.findById(obj.getId());
-        updateData(newObj.get(), obj);
+        User newObj = repository.findById(obj.getId()).get();
+        updateData(newObj, obj);
 
-       return repository.save(newObj.get());
+       return repository.save(newObj);
     }
 
     private void updateData(User newObj, User obj) {
